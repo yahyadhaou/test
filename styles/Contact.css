@@ -1,0 +1,66 @@
+#contact-page{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.backk{
+  margin: 25px;
+  padding:50px;
+  /* Setup */
+  position: relative;
+  background-image: url("https://images.unsplash.com/photo-1532202193792-e95ef22f1bce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHQlMjBzaGlydCUyMGJhY2t8ZW58MHx8MHx8&w=1000&q=80");
+  background-repeat: no-repeat;
+  background-size:cover
+
+}
+
+.section-header{
+  color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 50px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
+}
+
+.hashthree{
+  color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 25px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
+}
+
+.elform{
+  text-align: center;
+  margin:auto;
+  display:block;
+  position:flex;
+  margin-left:220px;
+}
+.btn1{
+    background-color: #222;
+    margin-top: 30px;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+  }
+  
+  .btn1:hover,
+  .btn1:focus {
+    opacity: .75;
+  }

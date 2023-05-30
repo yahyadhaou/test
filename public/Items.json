@@ -1,0 +1,39 @@
+
+{
+    "items": {
+      "bootstrap": [
+        {
+          "id": 1,
+          "title": "Our Products",
+          "body": "See all products",
+          "imageUrl": "https://www.mrporter.com/cms/ycm/resource/blob/340030/28ff1b2d12fbff1d70d412b759249ffb/3a8c43cd-9606-475f-8182-a3cea8881271-data.jpg",
+          "docs": "https://getbootstrap.com/docs/4.0/components/carousel/",
+          "href":"/products"
+        },
+        {
+          "id": 2,
+          "title": "T-Shirt",
+          "body": "See T-shirts",
+          "imageUrl": "https://www.mrporter.com/cms/ycm/resource/blob/1085678/9f8d5aacc11e069c4314c1d31d22bce2/34a1304d-5897-4d77-8822-98242261d0e1-data.jpg",
+          "docs": "https://getbootstrap.com/docs/4.0/components/carousel/",
+          "href":"/Tshirt"
+        },
+        {
+          "id": 3,
+          "title": "Pants",
+          "body": "See only Pants",
+          "imageUrl": "https://www.dmarge.com/wp-content/uploads/2019/07/casual-bottoms.jpg",
+          "docs": "https://getbootstrap.com/docs/4.0/components/carousel/",
+          "href":"/Jean"
+        },
+        {
+          "id": 4,
+          "title": "Shoes",
+          "body": "See Shoes",
+          "imageUrl": "http://cdn.shopify.com/s/files/1/0053/0051/8947/articles/hollo.jpg?v=1631517323",
+          "docs": "https://getbootstrap.com/docs/4.0/components/carousel/",
+          "href":"/Shoes"
+        }
+      ]
+    }
+  }
