@@ -16,7 +16,7 @@ const containerStyles: React.CSSProperties = {
   backgroundColor:"white"
 };
 const titlestyles:React.CSSProperties={
-  position: "absolute",
+position: "absolute",
 width: "345px",
 height: "30px",
 left:" 637px",
@@ -28,19 +28,40 @@ fontSize: "24px",
 lineheight: "30px",
 color: "#000000",
 }
-const SmallBox: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
+
+const SmallBox: React.FC<{ imageUrl: string; name: string }> = ({
+  imageUrl,
+  name,
+}) => {
   const smallBoxStyles: React.CSSProperties = {
-    position: 'absolute',
-    width: '90px',
-    height: '90px',
+    position: 'relative',
+    width: '120px',
+    height: '120px',
     left: '638px',
-    top: '210px',
+    top: '110px',
     background: `url(${imageUrl})`,
     backgroundSize: 'cover',
     borderRadius: '15px',
   };
 
-  return <div style={smallBoxStyles}></div>;
+  const nameStyles: React.CSSProperties = {
+    position: 'absolute',
+    width: '100px',
+    height: '30px',
+    right: '-100%',
+    top: '5px',
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: 600,
+    fontSize: '18px',
+    lineHeight: '30px',
+  };
+
+  return (
+    <div style={smallBoxStyles}>
+      <p style={nameStyles}>{name}</p>
+    </div>
+  );
 };
 
 const Box: React.FC<BoxProps> = ({ imageUrl, name, status, species }) => {
@@ -108,7 +129,7 @@ const Cart = () => {
       ))}
               <h1 style={titlestyles}>Other Characters</h1>
 <div>
-  <SmallBox imageUrl='https://rickandmortyapi.com/api/character/avatar/2.jpeg' />
+  <SmallBox imageUrl='https://rickandmortyapi.com/api/character/avatar/2.jpeg'   name="Small Box 1" />
 </div>
     </div>
   );
