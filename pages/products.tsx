@@ -5,6 +5,7 @@ import eclipsered from "../public/Ellipsered.png";
 import eclipsegrey from "../public/Ellipsegrey.png"
 import axios from 'axios';
 import Image from 'next/image';
+import out from "../public/profile.png";
 import { useRouter } from 'next/router'
 type BoxProps = {
   id:number;
@@ -98,7 +99,7 @@ const Charecter: React.FC = () => {
   useEffect(() => {
     getData();
   });
-
+// get all the charecter have the same name selected in home page
   const getData = () => {
     axios
       .get(`https://rickandmortyapi.com/api/character`)
@@ -110,7 +111,7 @@ const Charecter: React.FC = () => {
       })
       .catch((err) => console.log(err));
   };
-
+// set the filter of dispaly
   const handleFilter = (status: string) => {
     let filteredData = [];
 
@@ -130,12 +131,18 @@ const Charecter: React.FC = () => {
 
   return (
     <div>
+<div onClick={() => {
+        router.push("/")
+      }} style={{ position: "relative", bottom: "50px" }}>
+        <Image
+          src={out}
+          width={20}
+          height={20}
+          alt=""
+        />
+      </div>
 
-
-    <h1 onClick={()=>{
-      console.log(data);
-      console.log(locationName);
-      
+    <h1 onClick={()=>{  
     }}>Filter by status</h1>
   <div style={buttonsContainerStyles}>
         <button style={buttonStylesred} onClick={() => handleFilter('Dead')}>
@@ -149,7 +156,7 @@ const Charecter: React.FC = () => {
         </button>
       </div>
       <div style={containerStyles}>
-        {(rendering.length > 0 ? rendering : data).map((boxData) => (
+        {(rendering.length > 0 ? rendering : data).map((boxData:any) => (
           <Box key={boxData.id} imageUrl={boxData.image} name={boxData.name} status={boxData.status} species={boxData.species} id={boxData.id}     />
         ))}
       </div>

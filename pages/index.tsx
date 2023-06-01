@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
+// Define the Location type
 type Location = {
   id: number;
   name: string;
@@ -12,23 +13,25 @@ type Location = {
 };
 
 const Home: React.FC = () => {
-  const [data, setData] = useState<Location[]>([]);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [totalPages, setTotalPages] = useState<number>(0);
-  const prev: string = '<';
-  const next: string = '>';
+  const [data, setData] = useState<Location[]>([]); // Store the location data
+  const [currentPage, setCurrentPage] = useState<number>(1); // Current page number
+  const [totalPages, setTotalPages] = useState<number>(0); // Total number of pages
+  const prev: string = '<'; // Previous page arrow character
+  const next: string = '>'; // Next page arrow character
   const router = useRouter();
 
   useEffect(() => {
+    // Fetch data when the currentPage changes
     getData();
   }, [currentPage]);
 
   const getData = () => {
+    // Fetch location data from the API
     axios
       .get(`https://rickandmortyapi.com/api/location?page=${currentPage}`)
       .then((res) => {
-        setData(res.data.results);
-        setTotalPages(res.data.info.pages);
+        setData(res.data.results); // Set the fetched location data
+        setTotalPages(res.data.info.pages); // Set the total number of pages
       })
       .catch((err) => console.log(err));
   };
@@ -37,7 +40,7 @@ const Home: React.FC = () => {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    width: '900px', // Adjust the width as per your requirement
+    width: '900px',
   };
 
   const boxStyles: React.CSSProperties = {
@@ -55,6 +58,7 @@ const Home: React.FC = () => {
   };
 
   const handleBoxClick = (locationName: string) => {
+    // Handle box click event, navigate to the products page with locationName parameter
     console.log(`Box clicked: ${locationName}`);
     router.push(`/products?locationName=${locationName}`);
   };

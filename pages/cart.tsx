@@ -146,7 +146,7 @@ const Cart: React.FC = () => {
       .get('https://rickandmortyapi.com/api/character')
       .then((res) => {
         const results: Character[] = res.data.results;
-        const randomIds = getRandomIds(results.length, 6); // Get 6 random IDs
+        const randomIds = getRandomIds(results.length, 7); // Get 6 random IDs
 
         const randomCharacters = results.filter((character: Character) =>
           randomIds.includes(character.id)
