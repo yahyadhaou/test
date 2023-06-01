@@ -7,6 +7,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router'
 type BoxProps = {
+  id:number;
   imageUrl: string;
   name: string;
   status: string;
@@ -14,7 +15,7 @@ type BoxProps = {
 };
 
 
-const Box: React.FC<BoxProps> = ({ imageUrl, name,status,species}) => {
+const Box: React.FC<BoxProps> = ({ imageUrl, name,status,species,id}) => {
   const router =useRouter()
   const boxStyles: React.CSSProperties = {
     width: '336px',
@@ -37,17 +38,19 @@ const Box: React.FC<BoxProps> = ({ imageUrl, name,status,species}) => {
     fontWeight: 'Poppins',
 
   };
-  const handleBoxClick = () => {
-    console.log(`Box clicked: ${name}`);
-    router.push('/cart');
+  const handleBoxClick = (id: number) => {
+    console.log(`Box clicked: ${id}`);
+    router.push(`/cart?id=${id}`);
   };
 
   return (
-    <div style={boxStyles} onClick={handleBoxClick}>
-      <p style={nameStyles}>{name} <p> {status}-{species} </p></p>
-      
-    </div>
-  );
+    <div style={boxStyles} onClick={() => handleBoxClick(id)}>
+    <p style={nameStyles}>
+      {name} <br />
+      {status} - {species}
+    </p>
+  </div>
+  )
 };
 
 const Charecter: React.FC = () => {
@@ -123,7 +126,7 @@ const Charecter: React.FC = () => {
 
     setRendering(filteredData);
   };
-
+ 
 
   return (
     <div>
@@ -147,7 +150,7 @@ const Charecter: React.FC = () => {
       </div>
       <div style={containerStyles}>
         {(rendering.length > 0 ? rendering : data).map((boxData) => (
-          <Box key={boxData.id} imageUrl={boxData.image} name={boxData.name} status={boxData.status} species={boxData.species}    />
+          <Box key={boxData.id} imageUrl={boxData.image} name={boxData.name} status={boxData.status} species={boxData.species} id={boxData.id}     />
         ))}
       </div>
       <div>
