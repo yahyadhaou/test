@@ -1,7 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
+
 type Location = {
   id: number;
   name: string;
@@ -17,6 +18,7 @@ const Home: React.FC = () => {
   const prev: string = '<';
   const next: string = '>';
   const router = useRouter();
+
   useEffect(() => {
     getData();
   }, [currentPage]);
@@ -52,12 +54,13 @@ const Home: React.FC = () => {
     marginTop: '20px',
   };
 
-  const handleBoxClick = (locationName: String) => {
+  const handleBoxClick = (locationName: string) => {
     console.log(`Box clicked: ${locationName}`);
     router.push(`/products?locationName=${locationName}`);
   };
+
   return (
-    <div style={{backgroundColor:"white"}}>
+    <div style={{ backgroundColor: 'white' }}>
       <div style={containerStyles}>
         {data.map((location: Location, index: number) => (
           <div style={boxStyles} key={location.id} onClick={() => handleBoxClick(location.name)}>
@@ -101,5 +104,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-
-

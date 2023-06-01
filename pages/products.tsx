@@ -30,7 +30,7 @@ const Box: React.FC<BoxProps> = ({ imageUrl, name,status,species,id}) => {
   };
   const nameStyles: React.CSSProperties = {
     position: 'absolute',
-    bottom: '-88px',
+    bottom: '-68px',
     left: '30%',
     transform: 'translateX(-50%)',
     fontSize: '16px',
